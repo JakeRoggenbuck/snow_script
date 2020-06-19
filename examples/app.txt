@@ -1,0 +1,21 @@
+val "a"
+val "b"
+out 0
+out 1
+push 0 1
+out 2
+val "yeet"
+out 3
+push 2 3
+out 4
+val# 0 34
+val# 1 45
+out 0
+out 1
+calc 0 + 1
+calc# 3 0 + 1
+out 5
+out 3
+val# 2 "a"
+push# 1 5 2
+out 1

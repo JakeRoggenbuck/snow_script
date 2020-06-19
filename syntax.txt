@@ -1,12 +1,89 @@
-input "num 1: "
-input# location "num 1: "
-int& location
-int location
-str& location
-str location
-calc int operator int
-calc# location int operator int
-val int
-val# location int
-push location location
-push# location location location
+Key:
+	location: a place in memory e.g. 2
+	operator: an operator like + or /
+	value: an str or int
+
+Amp:
+	A & after int or str means cast value at memory
+	The int and str without a & append the casted data to memory
+
+Pound:
+	A # after macro is similar to &
+	A # lets you choose the location in memory to save the output to
+
+At:
+	A @ is used only for dump and type, this will apply the macro to a specific memory location
+
+The tags &, #, @ can only work on specific macros
+
+If a macro uses a # or a @
+The first location parameter is the location to save to memory
+
+Macros:
+	input
+		- gets input from stdin
+		- can use #
+		uses:
+			input "prompt: "
+			input# location "prompt: "
+	int
+		- casts value of location in memory to int
+		- can use &
+		uses:
+			int location
+			int& location
+	str
+		- casts value of location in memory to str
+		- can use &
+		uses:
+			str location
+			str& location
+	calc
+		- does calculation with two locations and one operator
+		- can use #
+		uses:
+			calc location operator location
+			calc# location location operator location
+	val
+		- sets a value in location in memory
+		- can use #
+		uses:
+			val value
+			val# location value
+	push
+		- pushes two values together
+		- can use #
+		uses:
+			push location location
+			push location location location
+	dump
+		- dumps all memory of program
+		- can use @ to dump specific location
+		uses:
+			dump
+			dump@ locations
+	type
+		- outputs type of value at memory location
+		- only can use @
+		uses:
+			type@
+	is_str
+		- will check if the type of a value in memory is a str
+		- can use #
+		uses:
+			is_str locations
+			is_str# location locations
+	is_int
+		- will check if the type of a value in memory is an int
+		- can use #
+		uses:
+			is_int location
+			is_int location location
+	jump
+		- will jump a line given an amount
+		uses:
+			jump value
+	if
+		- given the location in memory of a is_int or is_str output, will jump two lines
+		uses:
+			if location

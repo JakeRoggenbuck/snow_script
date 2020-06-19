@@ -52,9 +52,9 @@ while currentLine <= linenum:
         mem[m(1)] = sm(2) + sm(3)
     elif c[0] == "dump":
         print(mem)
-    elif c[0] == "dump#":
+    elif c[0] == "dump@":
         print(mem[c[1]])
-    elif c[0] == "type#":
+    elif c[0] == "type@":
         print(type(mem[m(1)]))
     elif c[0] == "is_str":
         mem.append(mem[m(1)] == str(c[2]))
