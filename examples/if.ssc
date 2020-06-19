@@ -1,0 +1,7 @@
+input "name: "
+is_str 0 "jake"
+if 1
+val "yes"
+jump 1
+val "no"
+out 2

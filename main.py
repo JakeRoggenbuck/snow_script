@@ -66,4 +66,8 @@ while currentLine <= linenum:
         mem[m(1)] = mem[m(1)] == int(c[2])
     elif c[0] == "jump":
         currentLine += int(c[1])
+    elif c[0] == "if":
+        if not mem[int(c[1])]:
+            currentLine += 2
     currentLine += 1
+
