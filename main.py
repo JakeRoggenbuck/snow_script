@@ -70,3 +70,4 @@ while currentLine <= linenum:
         if not mem[int(c[1])]:
             currentLine += 2
     currentLine += 1
+
