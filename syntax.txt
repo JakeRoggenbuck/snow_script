@@ -1,0 +1,12 @@
+input "num 1: "
+input# location "num 1: "
+int& location
+int location
+str& location
+str location
+calc int operator int
+calc# location int operator int
+val int
+val# location int
+push location location
+push# location location location
