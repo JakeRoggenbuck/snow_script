@@ -1,6 +1,6 @@
 input "name: "
 is_str 0 "jake"
-if 1
+if 1 2
 val "yes"
 jump 1
 val "no"
