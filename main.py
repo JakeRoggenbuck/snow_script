@@ -52,3 +52,11 @@ for line in lines:
         print(mem[c[1]])
     elif c[0] == "type#":
         print(type(mem[m(1)]))
+    elif c[0] == "is_str":
+        mem.append(mem[m(1)] == str(c[2]))
+    elif c[0] == "is_int":
+        mem.append(mem[m(1)] == int(c[2]))
+    elif c[0] == "is_str#":
+        mem[m(1)] = mem[m(1)] == str(c[2])
+    elif c[0] == "is_int#":
+        mem[m(1)] = mem[m(1)] == int(c[2])

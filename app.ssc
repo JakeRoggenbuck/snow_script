@@ -36,3 +36,10 @@ out 3
 dump
 type# 4
 type# 6
+is_str 1 "788"
+dump
+is_int 6 134
+dump
+is_str# 3 "5678"
+is_str# 1 "78"
+dump
