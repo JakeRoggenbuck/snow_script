@@ -2,6 +2,8 @@ val "a"
 val "b"
 out 0
 out 1
+input# 0 "hey"
+input# 1 "hey1"
 push 0 1
 out 2
 val "yeet"
@@ -19,3 +21,15 @@ out 3
 val# 2 "a"
 push# 1 5 2
 out 1
+val# 0 "56"
+val# 1 "78"
+push# 3 0 1
+out 3
+int& 0
+int& 1
+calc  0 + 1
+out 3
+str& 0
+str& 1
+push# 3 0 1
+out 3
