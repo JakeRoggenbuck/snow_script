@@ -69,6 +69,6 @@ while currentLine <= linenum:
         currentLine += int(c[1])
     elif c[0] == "if":
         if not mem[int(c[1])]:
-            currentLine += 2
+            currentLine += int(c[2])
     currentLine += 1
 

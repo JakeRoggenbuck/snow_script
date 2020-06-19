@@ -1,0 +1,10 @@
+input "name: "
+is_str 0 "jake"
+val ""
+if 1 4
+val# 2 "This is a test"
+out 2
+val# 2 "yes"
+jump 1
+val# 2 "no"
+out 2
