@@ -62,9 +62,9 @@ while currentLine <= linenum:
     elif c[0] == "is_int":
         mem.append(mem[m(1)] == int(c[2]))
     elif c[0] == "is_str#":
-        mem[m(1)] = mem[m(1)] == str(c[2])
+        mem[m(1)] = mem[m(2)] == str(c[3])
     elif c[0] == "is_int#":
-        mem[m(1)] = mem[m(1)] == int(c[2])
+        mem[m(1)] = mem[m(2)] == int(c[3])
     elif c[0] == "jump":
         currentLine += int(c[1])
     elif c[0] == "if":

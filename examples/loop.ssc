@@ -1,0 +1,11 @@
+val ""
+val ""
+val ""
+input# 0 "name: "
+is_str# 1 0 "jake"
+if 1 2
+val# 2 "yes"
+jump 1
+val# 2 "no"
+out 2
+jump -8
