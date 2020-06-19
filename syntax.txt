@@ -85,5 +85,6 @@ Macros:
 			jump value
 	if
 		- given the location in memory of a is_int or is_str output, will jump two lines
+		- takes distance to jump
 		uses:
-			if location
+			if location (distance as a value to jump)
