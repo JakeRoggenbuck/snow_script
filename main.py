@@ -18,8 +18,12 @@ def sm(l):
 def im(l):
     return int(mem[m(l)])
 
-for line in lines:
-    c = shlex.split(line)
+currentLine = 0
+x = [line for line in lines]
+linenum = len(x) -1
+
+while currentLine <= linenum:
+    c = shlex.split(x[currentLine])
     if c[0] == "input":
         mem.append(input(c[1]))
     elif c[0] == "input#":
@@ -60,3 +64,4 @@ for line in lines:
         mem[m(1)] = mem[m(1)] == str(c[2])
     elif c[0] == "is_int#":
         mem[m(1)] = mem[m(1)] == int(c[2])
+    currentLine += 1
