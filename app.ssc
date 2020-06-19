@@ -33,3 +33,6 @@ str& 0
 str& 1
 push# 3 0 1
 out 3
+dump
+type# 4
+type# 6
