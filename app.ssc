@@ -43,3 +43,10 @@ dump
 is_str# 3 "5678"
 is_str# 1 "78"
 dump
+val# 0 "bye"
+val# 1 "place"
+jump 2
+val# 0 "hello"
+val# 1 "world"
+out 0
+out 1
