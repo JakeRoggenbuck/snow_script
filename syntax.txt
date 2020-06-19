@@ -71,14 +71,14 @@ Macros:
 		- will check if the type of a value in memory is a str
 		- can use #
 		uses:
-			is_str locations
-			is_str# location locations
+			is_str locations value
+			is_str# location locations value
 	is_int
-		- will check if the type of a value in memory is an int
+		- will check if the type of a value in memory is an int and is the same as value
 		- can use #
 		uses:
-			is_int location
-			is_int location location
+			is_int location value
+			is_int location location value
 	jump
 		- will jump a line given an amount
 		uses:
