@@ -1,0 +1,4 @@
+input "num 1: "
+input "num 2: "
+calc 0 + 1
+out 2

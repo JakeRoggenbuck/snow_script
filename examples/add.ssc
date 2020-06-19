@@ -1,0 +1,4 @@
+val 100
+input "add what? "
+calc# 0 0 + 1
+out 0

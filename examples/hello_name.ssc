@@ -1,0 +1,4 @@
+val "Hello, "
+input "What's your name? "
+push 0 1
+out 2
