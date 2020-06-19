@@ -46,3 +46,9 @@ for line in lines:
         mem.append(sm(1) + sm(2))
     elif c[0] == "push#":
         mem[m(1)] = sm(2) + sm(3)
+    elif c[0] == "dump":
+        print(mem)
+    elif c[0] == "dump#":
+        print(mem[c[1]])
+    elif c[0] == "type#":
+        print(type(mem[m(1)]))
