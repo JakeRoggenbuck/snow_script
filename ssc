@@ -20,7 +20,7 @@ with open(args.filename, 'r') as f:
     lines = []
     for line in f:
         if not regex.match(r'^\s*$', line):
-            print(line.strip().split(';'))
+            lines.extend(line.strip().split(';'))
 
 currentLine = 0
 while currentLine <= len(lines)-1:
