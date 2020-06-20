@@ -15,60 +15,60 @@ def sm(l):
     return str(mem[m(l)])
 def im(l):
     return int(mem[m(l)])
+def add(d):
+    mem.append(d)
 
-with open(args.filename, 'r') as f:
-    lines = []
-    for line in f:
-        if not regex.match(r'^\s*$', line):
-            lines.extend(line.strip().split(';'))
+with open(args.filename)as f:
+     lines=[];[lines:=lines+([]if regex.match(r'^\s*$',l)
+         else l.strip().split(';'))for l in f]
 
-currentLine = 0
-while currentLine <= len(lines)-1:
-    c = shlex.split(lines[currentLine])
-    if c[0] == "input":
-        mem.append(input(c[1]))
-    elif c[0] == "input#":
-        mem[m(1)] = input(c[2])
-    elif c[0] == "int&":
-        mem[m(1)] = im(1)
-    elif c[0] == "str&":
-        mem[m(1)] = sm(1)
-    elif c[0] == "int":
-        mem.append(im(1))
-    elif c[0] == "str":
-        mem.append(sm(1))
-    elif c[0] == "calc":
-        mem.append(eval(sm(1) + c[2] + sm(3)))
-    elif c[0] == "calc#":
-        mem[m(1)] = eval(sm(2) + c[3] + sm(4))
-    elif c[0] == "val":
-        mem.append(c[1])
-    elif c[0] == "val#":
-        mem[m(1)] = c[2]
-    elif c[0] == "out":
+cline = 0
+while cline <= len(lines)-1:
+    c = shlex.split(lines[cline]);b = c[0]
+    if b == "input":
+        add(input(c[1]))
+    elif b == "input#":
+        mem[m(1)]=input(c[2])
+    elif b == "int&":
+        mem[m(1)]=im(1)
+    elif b == "str&":
+        mem[m(1)]=sm(1)
+    elif b == "int":
+        add(im(1))
+    elif b == "str":
+        add(sm(1))
+    elif b == "calc":
+        add(eval(sm(1)+c[2]+sm(3)))
+    elif b == "calc#":
+        mem[m(1)]=eval(sm(2)+c[3]+sm(4))
+    elif b == "val":
+        add(c[1])
+    elif b == "val#":
+        mem[m(1)]=c[2]
+    elif b == "out":
         print(mem[m(1)])
-    elif c[0] == "push":
-        mem.append(sm(1) + sm(2))
-    elif c[0] == "push#":
-        mem[m(1)] = sm(2) + sm(3)
-    elif c[0] == "dump":
+    elif b == "push":
+        add(sm(1)+sm(2))
+    elif b == "push#":
+        mem[m(1)]=sm(2)+sm(3)
+    elif b == "dump":
         print(mem)
-    elif c[0] == "dump@":
+    elif b == "dump@":
         print(mem[c[1]])
-    elif c[0] == "type@":
+    elif b == "type@":
         print(type(mem[m(1)]))
-    elif c[0] == "is_str":
-        mem.append(mem[m(1)] == str(c[2]))
-    elif c[0] == "is_int":
-        mem.append(mem[m(1)] == int(c[2]))
-    elif c[0] == "is_str#":
-        mem[m(1)] = mem[m(2)] == str(c[3])
-    elif c[0] == "is_int#":
-        mem[m(1)] = mem[m(2)] == int(c[3])
-    elif c[0] == "jump":
-        currentLine += int(c[1])
-    elif c[0] == "if":
+    elif b == "is_str":
+        add(mem[m(1)]==str(c[2]))
+    elif b == "is_int":
+        add(mem[m(1)]==int(c[2]))
+    elif b == "is_str#":
+        mem[m(1)]=mem[m(2)]==str(c[3])
+    elif b == "is_int#":
+        mem[m(1)]=mem[m(2)]==int(c[3])
+    elif b == "jump":
+        cline+=int(c[1])
+    elif b == "if":
         if not mem[int(c[1])]:
-            currentLine += int(c[2])
-    currentLine += 1
+            cline+=int(c[2])
+    cline+=1
 
