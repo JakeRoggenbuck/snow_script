@@ -19,8 +19,11 @@ def add(d):
     mem.append(d)
 
 with open(args.filename)as f:
-     lines=[];[lines:=lines+([]if regex.match(r'^\s*$',l)
-         else l.strip().split(';'))for l in f]
+    lines = []
+    for line in f:
+        line = line.strip()
+        if line:
+            lines.extend(line.split(';'))
 
 cline = 0
 while cline <= len(lines)-1:
