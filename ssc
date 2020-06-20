@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import shlex
+import regex
 
 parser = argparse.ArgumentParser()
 parser.add_argument("filename", type=str)
@@ -8,10 +9,6 @@ args = parser.parse_args()
 
 mem = []
 
-with open(args.filename, 'r') as f:
-    content = f.readlines()
-    lines = [line for line in content]
-    
 def m(l):
     return int(c[l])
 def sm(l):
@@ -19,12 +16,15 @@ def sm(l):
 def im(l):
     return int(mem[m(l)])
 
-currentLine = 0
-x = [line for line in lines]
-linenum = len(x) -1
+with open(args.filename, 'r') as f:
+    lines = []
+    for line in f:
+        if not regex.match(r'^\s*$', line):
+            print(line.strip().split(';'))
 
-while currentLine <= linenum:
-    c = shlex.split(x[currentLine])
+currentLine = 0
+while currentLine <= len(lines)-1:
+    c = shlex.split(lines[currentLine])
     if c[0] == "input":
         mem.append(input(c[1]))
     elif c[0] == "input#":
