@@ -74,6 +74,10 @@ while cline <= len(lines)-1:
         del mem[m(1)]
     elif b == "cp":
         mem[m(2)]=mem[m(1)]
+    elif b == "len":
+        mem.append(len(sm(1)))
+    elif b == "len#":
+        mem[m(1)] = len(sm(2))
     elif b == "if":
         if not mem[int(c[1])]:
             cline+=int(c[2])

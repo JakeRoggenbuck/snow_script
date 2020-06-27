@@ -1,0 +1,6 @@
+input "name: "
+len 0
+out 1
+input "name two: "
+len# 0 2
+out 0
