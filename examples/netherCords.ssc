@@ -1,0 +1,19 @@
+val "Nether cords calculator"
+out 0
+val# 0 "Nether to Overworld: 0"
+out 0
+val# 0 "Overworld to Nether: 1"
+out 0
+input ": "
+input "x: "
+input "z: "
+val# 0 8
+is_str 1 "0"
+if 4 3
+calc# 2 2 * 0
+calc# 3 3 * 0
+jump 2
+calc# 2 2 / 0
+calc# 3 3 / 0
+out 2
+out 3

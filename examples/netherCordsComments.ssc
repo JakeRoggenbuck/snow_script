@@ -1,0 +1,21 @@
+val "Nether cords calculator"
+out 0 ~ outputs phrase ~
+val# 0 "Nether to Overworld: 0"
+out 0 ~ outputs phrase ~
+val# 0 "Overworld to Nether: 1"
+out 0 ~ outputs phrase ~
+
+input ": " ~ askes for option ~
+input "x: " ~ askes for x ~
+input "z: " ~ askes for y ~
+val# 0 8 ~ sets multiplier ~
+
+is_str 1 "0" ~ checks if 0
+if 4 3 ~ if 4 is true ~
+calc# 2 2 * 0 ~ multiplies location 2 with location 0 ~
+calc# 3 3 * 0 ~ multiplies location 3 with location 0 ~
+jump 2
+calc# 2 2 / 0 ~ divides location 2 with location 0 ~
+calc# 3 3 / 0 ~ divides location 3 with location 0 ~
+out 2
+out 3
