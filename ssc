@@ -78,6 +78,14 @@ while cline <= len(lines)-1:
         mem.append(len(sm(1)))
     elif b == "len#":
         mem[m(1)] = len(sm(2))
+    elif b == "char":
+        mem.append(chr(im(1)))
+    elif b == "char#":
+        mem[m(1)] = chr(im(2))
+    elif b == "ord":
+        mem.append(ord(sm(1)))
+    elif b == "ord#":
+        mem[m(1)] = ord(sm(2))
     elif b == "if":
         if not mem[int(c[1])]:
             cline+=int(c[2])
