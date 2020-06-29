@@ -1,0 +1,12 @@
+val 65
+char 0
+out 1
+val "a"
+ord 2
+out 3
+val# 0 67
+char# 0 0
+out 0
+val# 1 "L"
+ord# 1 1
+out 1
