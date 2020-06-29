@@ -37,8 +37,8 @@ int& 1;calc  0 + 1;out 3
 str& 0
 str& 1;push# 3 0 1
 out 3;dump
-type# 4
-type# 6
+type@ 4
+type@ 6
 is_str 1 "788"
 dump
 is_int 6 134
@@ -47,6 +47,8 @@ is_str# 1 3 "5678"
 is_str# 2 1 "78"
 dump
 val# 0 "bye"
+
+test
 val# 1 "place"
 jump 2
 val# 0 "hello"
@@ -63,3 +65,4 @@ del 1
 dump
 del 1
 dump
+ye
