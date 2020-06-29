@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from termcolor import colored
 import argparse
 import shlex
 import regex
@@ -89,5 +90,7 @@ while cline <= len(lines)-1:
     elif b == "if":
         if not mem[int(c[1])]:
             cline+=int(c[2])
+    else:
+        print(colored(f"Command not found \"{b}\"", 'red'))
     cline+=1
 
