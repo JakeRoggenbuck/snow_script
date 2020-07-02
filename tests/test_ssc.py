@@ -138,5 +138,37 @@ class testCommands(unittest.TestCase):
             ssc.val_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_out(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        outs = [
+            [["123", "456", "789"],["out", "0"],"123"],
+            [["4", "5", "6"],["out", "2"],"6"],
+        ]
+        for out in outs:
+            mem = out[0]
+            c = out[1]
+            ans = out[2]
+            result = ssc.out_(mem,c)
+            self.assertEqual(result, ans)
+
+    def test_push(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        pushs = [
+            [["123", "456", "789"],["push", "0", "1"],["123", "456", "789", "123456"]],
+            [["4", "5", "6"],["push", "1", "2"],["4", "5", "6", "56"]],
+        ]
+        for push in pushs:
+            mem = push[0]
+            c = push[1]
+            ans = push[2]
+            ssc.push_(mem,c)
+            self.assertEqual(mem, ans)
+
+
+
 if __name__ == "__main__":
     unittest.main()
