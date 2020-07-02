@@ -21,6 +21,10 @@ class testCommands(unittest.TestCase):
             ssc.str_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_str_amp(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
         strings = [
             [[123, 456, 789],["str&", "0"],["123", 456, 789]],
             [[4, 5, 6],["str&", "1"],[4, "5", 6]],
@@ -47,6 +51,10 @@ class testCommands(unittest.TestCase):
             ssc.int_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_int_amp(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
         ints = [
             [["123", "456", "789"],["str&", "0"],[123, "456", "789"]],
             [["4", "5", "6"],["str&", "1"],["4", 5, "6"]],
@@ -79,6 +87,10 @@ class testCommands(unittest.TestCase):
             ssc.calc_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_calc_hash(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
         calcs = [
             [[123, 456, 789],["calc#", "0", "0", "+", "1"],[579, 456, 789]],
             [[4, 5, 6],["calc#", "0", "1", "+", "2"],[11, 5, 6]],
@@ -96,7 +108,35 @@ class testCommands(unittest.TestCase):
             ssc.calc_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_val(self):
+        import src.ssc
 
+        ssc = src.ssc.commands()
+        vals = [
+            [["123", "456", "789"],["val", "hey"],["123", "456", "789", "hey"]],
+            [["4", "5", "6"],["val", 1],["4", "5", "6", 1]],
+        ]
+        for val in vals:
+            mem = val[0]
+            c = val[1]
+            ans = val[2]
+            ssc.val_(mem,c)
+            self.assertEqual(mem, ans)
+                
+    def test_val_hash(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        vals = [
+            [["123", "456", "789"],["val#", "0", "lol"],["lol", "456", "789"]],
+            [["4", "5", "6"],["val#", "2", 1],["4", "5", 1]],
+        ]
+        for val in vals:
+            mem = val[0]
+            c = val[1]
+            ans = val[2]
+            ssc.val_(mem,c)
+            self.assertEqual(mem, ans)
 
 if __name__ == "__main__":
     unittest.main()
