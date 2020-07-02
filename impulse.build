@@ -1,1 +1,1 @@
-sudo cp ssc /bin/ssc
+sudo cp src/ssc.py /bin/ssc

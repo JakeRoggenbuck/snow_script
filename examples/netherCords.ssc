@@ -8,7 +8,7 @@ input ": "
 input "x: "
 input "z: "
 val# 0 8
-is_str 1 "0"
+is 1 "0"
 if 4 3
 calc# 2 2 * 0
 calc# 3 3 * 0
