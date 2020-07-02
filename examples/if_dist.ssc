@@ -1,5 +1,5 @@
 input "name: "
-is_str 0 "jake"
+is 0 "jake"
 val ""
 if 1 4
 val# 2 "This is a test"
