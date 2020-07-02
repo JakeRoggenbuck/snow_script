@@ -280,5 +280,54 @@ class testCommands(unittest.TestCase):
             ssc.del_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_cp(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        cps = [
+            [[1, 2, 3],["cp", 2, 0],[3, 2, 3]],
+            [["a", "b", "c"],["cp", 0, 2],["a", "b", "a"]],
+ 
+        ]
+        for cp in cps:
+            mem = cp[0]
+            c = cp[1]
+            ans = cp[2]
+            ssc.cp_(mem,c)
+            self.assertEqual(mem, ans)
+
+    def test_char(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        chars = [
+            [[98, 125, 120],["char", 2],[98, 125, 120, "x"]],
+            [[96, 99, 98],["char", 1],[96, 99, 98, "c"]],
+ 
+        ]
+        for char in chars:
+            mem = char[0]
+            c = char[1]
+            ans = char[2]
+            ssc.char_(mem,c)
+            self.assertEqual(mem, ans)
+
+    def test_char_hash(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        chars = [
+            [[98, 125, 120],["char#", 0, 2],["x", 125, 120]],
+            [[96, 99, 98],["char#", 2, 1],[96, 99, "c"]],
+ 
+        ]
+        for char in chars:
+            mem = char[0]
+            c = char[1]
+            ans = char[2]
+            ssc.char_(mem,c)
+            self.assertEqual(mem, ans)
+
+
 if __name__ == "__main__":
     unittest.main()

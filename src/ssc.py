@@ -82,7 +82,7 @@ class commands():
         return mem
     def cp_(self,mem,c):
         mem[int(c[2])]=mem[int(c[1])]
-        return mem[int(c[2])]
+        return mem
     def char_(self,mem,c):
         if c[0][-1] == "#":
             mem[int(c[1])] = chr(int(mem[int(c[2])]))
