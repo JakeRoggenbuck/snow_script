@@ -117,6 +117,7 @@ def file_read():
             line = line.strip()
             if line:
                 lines.extend(line.split(';'))
+
 def loop():
     cline = 0
     while cline <= len(lines)-1:
