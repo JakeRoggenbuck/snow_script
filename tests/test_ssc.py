@@ -360,5 +360,36 @@ class testCommands(unittest.TestCase):
             ssc.len_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_ord(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        ords = [
+            [[98, "d", 120],["ord", 1],[98, "d", 120, 100]],
+            [[96, 99, "j"],["ord", 2,],[96, 99, "j", 106]],
+        ]
+        for _ord in ords:
+            mem = _ord[0]
+            c = _ord[1]
+            ans = _ord[2]
+            ssc.ord_(mem,c)
+            self.assertEqual(mem, ans)
+
+    def test_ord_hash(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        ords = [
+            [[98, "d", 120],["ord#", 0, 1],[100, "d", 120]],
+            [[96, 99, "j"],["ord#", 1, 2,],[96, 106, "j"]],
+        ]
+        for _ord in ords:
+            mem = _ord[0]
+            c = _ord[1]
+            ans = _ord[2]
+            ssc.ord_(mem,c)
+            self.assertEqual(mem, ans)
+
+
 if __name__ == "__main__":
     unittest.main()
