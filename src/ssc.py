@@ -109,60 +109,63 @@ def parse():
     parser = argparse.ArgumentParser()
     parser.add_argument("filename", type=str)
     args = parser.parse_args()
+    return args
 
-def file_read():
-    with open(args.filename)as f:
+def file_read(filename_args):
+    with open(filename_args.filename)as f:
         lines = []
         for line in f:
             line = line.strip()
             if line:
                 lines.extend(line.split(';'))
+    return lines
 
-def loop():
+def loop(lines):
+    ssc = commands()
     cline = 0
     while cline <= len(lines)-1:
         c = shlex.split(lines[cline]);b = c[0]
         if regex.search("input", b):
-            commands.input_(mem,c)
+            ssc.input_(mem,c)
         elif regex.search("int", b):
-            commands.int_(mem,c)
+            ssc.int_(mem,c)
         elif regex.search("str", b):
-            commands.str_(mem,c)
+            ssc.str_(mem,c)
         elif regex.search("calc", b):
-            commands.calc_(mem,c)
+            ssc.calc_(mem,c)
         elif regex.search("val", b):
-            commands.val_(mem,c)
+            ssc.val_(mem,c)
         elif regex.search("out", b):
-            print(commands.out_(mem,c))
+            print(ssc.out_(mem,c))
         elif regex.search("push", b):
-            commands.push_(mem,c)
+            ssc.push_(mem,c)
         elif regex.search("dump", b):
-            commands.dump_(mem,c)
+            ssc.dump_(mem,c)
         elif regex.search("type", b):
-            print(commands.type_(mem,c))
+            print(ssc.type_(mem,c))
         elif regex.search("is", b):
-            commands.is_(mem,c)
+            ssc.is_(mem,c)
         elif regex.search("jump", b):
-            cline = commands.jump_(cline)
+            cline = ssc.jump_(c,cline)
         elif regex.search("del", b):
-            commands.del_(mem,c)
+            ssc.del_(mem,c)
         elif regex.search("len", b):
-            commands.len_(mem,c)
+            ssc.len_(mem,c)
         elif regex.search("char", b):
-            commands.char_(mem,c)
+            ssc.char_(mem,c)
         elif regex.search("ord", b):
-            commands.ord_(mem,c)
+            ssc.ord_(mem,c)
         elif regex.search("if", b):
             if not mem[int(c[1])]:
                 cline+=int(c[2])
         elif regex.search("cp", b):
-            commands.cp_(mem,c)
+            ssc.cp_(mem,c)
         else:
             print(colored(f"Command not found \"{b}\"", 'red'))
         cline+=1
 
 if __name__ == "__main__":
-    parse()
-    file_read()
-    loop()
+    filename_args = parse()
+    lines_list = file_read(filename_args)
+    loop(lines_list)
 
