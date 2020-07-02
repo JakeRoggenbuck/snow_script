@@ -168,7 +168,20 @@ class testCommands(unittest.TestCase):
             ssc.push_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_push_hash(self):
+        import src.ssc
 
+        ssc = src.ssc.commands()
+        pushs = [
+            [["123", "456", "789"],["push#", "0", "0", "1"],["123456", "456", "789"]],
+            [["4", "5", "6"],["push#", "2", "1", "2"],["4", "5", "56"]],
+        ]
+        for push in pushs:
+            mem = push[0]
+            c = push[1]
+            ans = push[2]
+            ssc.push_(mem,c)
+            self.assertEqual(mem, ans)
 
 if __name__ == "__main__":
     unittest.main()
