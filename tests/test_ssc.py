@@ -183,5 +183,69 @@ class testCommands(unittest.TestCase):
             ssc.push_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_dump(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        dumps = [
+            [["123", "456", "789"],["dump"],["123", "456", "789"]],
+            [["4", "5", "6"],["dump"],["4", "5", "6"]],
+        ]
+        for dump in dumps:
+            mem = dump[0]
+            c = dump[1]
+            ans = dump[2]
+            ssc.dump_(mem,c)
+            self.assertEqual(mem, ans)
+
+    def test_dump_hash(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        dumps = [
+            [["123", "456", "789"],["dump@", "1"],"456"],
+            [["4", "5", "6"],["dump@", "0"],"4"],
+        ]
+        for dump in dumps:
+            mem = dump[0]
+            c = dump[1]
+            ans = dump[2]
+            result = ssc.dump_(mem,c)
+            self.assertEqual(result, ans)
+
+
+    def test_type(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        types = [
+            [["123", "456", "789"],["type", "0"],"<class 'str'>"],
+            [["4", 5, 6],["type", "1"],"<class 'int'>"],
+        ]
+        for type_ in types:
+            mem = type_[0]
+            c = type_[1]
+            ans = type_[2]
+            result = ssc.type_(mem,c)
+            self.assertEqual(str(result), ans)
+
+    def test_is(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        types = [
+            [["123s", "456", "789"],["is", "0", "123s"],["123s", "456", "789", True]],
+            [["4", 5, 6],["is", "1", 5],["4", 5, 6, True]],
+            [["123dt", "456", "789"],["is", "0", "hey"],["123dt", "456", "789", False]],
+            [["4", 5, 6],["is", "1", 254],["4", 5, 6, False]],
+ 
+        ]
+        for type_ in types:
+            mem = type_[0]
+            c = type_[1]
+            ans = type_[2]
+            ssc.is_(mem,c)
+            self.assertEqual(mem, ans)
+
 if __name__ == "__main__":
     unittest.main()

@@ -54,7 +54,7 @@ class commands():
             return mem[-1]
     def dump_(self,mem,c):
         if c[0][-1] == "@":
-            a_ = mem[c[1]]
+            a_ = mem[int(c[1])]
         else:
             a_ = mem
         return a_
