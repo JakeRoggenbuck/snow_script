@@ -319,7 +319,7 @@ class testCommands(unittest.TestCase):
         chars = [
             [[98, 125, 120],["char#", 0, 2],["x", 125, 120]],
             [[96, 99, 98],["char#", 2, 1],[96, 99, "c"]],
- 
+
         ]
         for char in chars:
             mem = char[0]
@@ -328,6 +328,37 @@ class testCommands(unittest.TestCase):
             ssc.char_(mem,c)
             self.assertEqual(mem, ans)
 
+    def test_len(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        lens = [
+            [[98, 125, 120],["len", 0],[98, 125, 120, 2]],
+            [[96, 99, "98a"],["len", 2],[96, 99, "98a", 3]],
+ 
+        ]
+        for _len in lens:
+            mem = _len[0]
+            c = _len[1]
+            ans = _len[2]
+            ssc.len_(mem,c)
+            self.assertEqual(mem, ans)
+
+    def test_len_hash(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        lens = [
+            [[98, 125, 120],["len#", 1, 0],[98, 2, 120]],
+            [[96, 99, "98c"],["len#", 0, 2],[3, 99, "98c"]],
+ 
+        ]
+        for _len in lens:
+            mem = _len[0]
+            c = _len[1]
+            ans = _len[2]
+            ssc.len_(mem,c)
+            self.assertEqual(mem, ans)
 
 if __name__ == "__main__":
     unittest.main()
