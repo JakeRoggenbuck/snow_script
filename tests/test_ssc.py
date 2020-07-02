@@ -6,6 +6,7 @@ class testCommands(unittest.TestCase):
 
         ssc = src.ssc.commands()
         self.assertTrue(ssc, "Created an instance of ssc")
+    
     def test_str(self):
         import src.ssc
 
@@ -262,6 +263,22 @@ class testCommands(unittest.TestCase):
             ans = jump[1][1]
             result = ssc.jump_(c,cline)
             self.assertEqual(result, ans)
+
+    def test_del(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        dels = [
+            [[1, 2, 3],["del", 1],[1, 3]],
+            [["a", "b", "c"],["del", 0],["b", "c"]],
+ 
+        ]
+        for _del in dels:
+            mem = _del[0]
+            c = _del[1]
+            ans = _del[2]
+            ssc.del_(mem,c)
+            self.assertEqual(mem, ans)
 
 if __name__ == "__main__":
     unittest.main()

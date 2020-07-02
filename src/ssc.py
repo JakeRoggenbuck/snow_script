@@ -79,7 +79,7 @@ class commands():
         return cline
     def del_(self,mem,c):
         del mem[int(c[1])]
-        return mem[int(c[1-1])]
+        return mem
     def cp_(self,mem,c):
         mem[int(c[2])]=mem[int(c[1])]
         return mem[int(c[2])]
