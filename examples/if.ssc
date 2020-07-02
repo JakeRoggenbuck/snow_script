@@ -1,5 +1,6 @@
 input "name: "
-is_str 0 "jake"
+is 0 "jake"
+dump
 if 1 2
 val "yes"
 jump 1

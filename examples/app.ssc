@@ -4,6 +4,7 @@ out 0
 out 1
 input# 0 "hey"
 input# 1 "hey1"
+input "hey2"
 push 0 1
 out 2
 val "yeet"
