@@ -74,7 +74,7 @@ class commands():
             except:
                 mem.append(str(mem[int(c[1])])==str(c[2]))    
             return mem[-1]
-    def jump_(self,mem,c,cline):
+    def jump_(self,c,cline):
         cline += int(c[1])
         return cline
     def del_(self,mem,c):

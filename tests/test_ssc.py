@@ -233,19 +233,35 @@ class testCommands(unittest.TestCase):
         import src.ssc
 
         ssc = src.ssc.commands()
-        types = [
+        is_str_int = [
             [["123s", "456", "789"],["is", "0", "123s"],["123s", "456", "789", True]],
             [["4", 5, 6],["is", "1", 5],["4", 5, 6, True]],
             [["123dt", "456", "789"],["is", "0", "hey"],["123dt", "456", "789", False]],
             [["4", 5, 6],["is", "1", 254],["4", 5, 6, False]],
  
         ]
-        for type_ in types:
-            mem = type_[0]
-            c = type_[1]
-            ans = type_[2]
+        for is_ in is_str_int:
+            mem = is_[0]
+            c = is_[1]
+            ans = is_[2]
             ssc.is_(mem,c)
             self.assertEqual(mem, ans)
+
+    def test_jump(self):
+        import src.ssc
+
+        ssc = src.ssc.commands()
+        jumps = [
+            [["jump", "1"],[1, 2]],
+            [["jump", "1"],[1, 2]],
+ 
+        ]
+        for jump in jumps:
+            c = jump[0]
+            cline = jump[1][0]
+            ans = jump[1][1]
+            result = ssc.jump_(c,cline)
+            self.assertEqual(result, ans)
 
 if __name__ == "__main__":
     unittest.main()
