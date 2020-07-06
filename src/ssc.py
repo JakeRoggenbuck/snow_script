@@ -13,7 +13,6 @@ class commands():
             mem[int(c[1])] = input(c[2])
             return mem[int(c[1])]
         else:
-
             mem.append(input(c[1]))
             return mem[-1]
 
