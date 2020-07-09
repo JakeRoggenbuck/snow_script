@@ -7,7 +7,7 @@ import regex
 mem = []
 
 
-class commands():
+class commands:
     def input_(self, mem, c):
         if c[0][-1] == "#":
             mem[int(c[1])] = input(c[2])
@@ -34,10 +34,10 @@ class commands():
 
     def calc_(self, mem, c):
         if c[0][-1] == "#":
-            mem[int(c[1])] = eval(str(mem[int(c[2])])+c[3]+str(mem[int(c[4])]))
+            mem[int(c[1])] = eval(str(mem[int(c[2])]) + c[3] + str(mem[int(c[4])]))
             return mem[int(c[1])]
         else:
-            mem.append(eval(str(mem[int(c[1])])+c[2]+str(mem[int(c[3])])))
+            mem.append(eval(str(mem[int(c[1])]) + c[2] + str(mem[int(c[3])])))
             return mem[-1]
 
     def val_(self, mem, c):
@@ -54,10 +54,10 @@ class commands():
 
     def push_(self, mem, c):
         if c[0][-1] == "#":
-            mem[int(c[1])] = str(mem[int(c[2])])+str(mem[int(c[3])])
+            mem[int(c[1])] = str(mem[int(c[2])]) + str(mem[int(c[3])])
             return mem[int(c[1])]
         else:
-            mem.append(str(mem[int(c[1])])+str(mem[int(c[2])]))
+            mem.append(str(mem[int(c[1])]) + str(mem[int(c[2])]))
             return mem[-1]
 
     def dump_(self, mem, c):
@@ -130,19 +130,19 @@ def parse():
 
 
 def file_read(filename_args):
-    with open(filename_args.filename)as f:
+    with open(filename_args.filename) as f:
         lines = []
         for line in f:
             line = line.strip()
             if line:
-                lines.extend(line.split(';'))
+                lines.extend(line.split(";"))
     return lines
 
 
 def loop(lines):
     ssc = commands()
     cline = 0
-    while cline <= len(lines)-1:
+    while cline <= len(lines) - 1:
         c = shlex.split(lines[cline])
         b = c[0]
         if regex.search("input", b):
@@ -181,7 +181,7 @@ def loop(lines):
         elif regex.search("cp", b):
             ssc.cp_(mem, c)
         else:
-            print(colored(f"Command not found \"{b}\"", 'red'))
+            print(colored(f'Command not found "{b}"', "red"))
         cline += 1
 
 
