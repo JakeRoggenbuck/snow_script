@@ -146,8 +146,12 @@ def file_read(filename_args):
 def loop(lines):
     ssc = commands()
     cline = 0
+    direction = 1
     while cline <= len(lines) - 1:
-        c = shlex.split(lines[cline])
+        try:
+            c = shlex.split(lines[cline])
+        except:
+            exit()
         b = c[0]
         if regex.search("input", b):
             ssc.input_(mem, c)
@@ -179,6 +183,8 @@ def loop(lines):
             ssc.char_(mem, c)
         elif regex.search("ord", b):
             ssc.ord_(mem, c)
+        elif regex.search("dir", b):
+            direction = int(c[1])
         elif regex.search("if", b):
             if not mem[int(c[1])]:
                 cline += int(c[2])
@@ -186,7 +192,7 @@ def loop(lines):
             ssc.cp_(mem, c)
         else:
             print(colored(f'Command not found "{b}"', "red"))
-        cline += 1
+        cline += direction
 
 
 if __name__ == "__main__":
