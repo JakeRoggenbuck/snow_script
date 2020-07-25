@@ -34,12 +34,12 @@ class commands:
 
     def calc_(self, mem, c):
         if c[0][-1] == "#":
-            eq = ' '.join(str(mem[int(l[1])]) if l[0] == '$' else str(l) for l in c[2:])
+            eq = " ".join(str(mem[int(l[1])]) if l[0] == "$" else str(l) for l in c[2:])
             print(eq)
             mem[int(c[1])] = eval(eq)
             return mem[int(c[1])]
         else:
-            eq = ' '.join(str(mem[int(l[1])]) if l[0] == '$' else str(l) for l in c[1:])
+            eq = " ".join(str(mem[int(l[1])]) if l[0] == "$" else str(l) for l in c[1:])
             print(eq)
             mem.append(eval(eq))
             return mem[-1]
