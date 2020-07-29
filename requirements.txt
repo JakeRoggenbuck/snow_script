@@ -1,0 +1,5 @@
+pytest
+termcolor
+argparse
+shlex
+regex
