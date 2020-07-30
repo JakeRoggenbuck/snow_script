@@ -1,5 +1,4 @@
 pytest
-termcolor
-argparse
+termcolor==1.1.0
 shlex
 regex
