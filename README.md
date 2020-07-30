@@ -11,9 +11,9 @@ A macro language with low level macros like if statements, jumps, and memory con
 `ssc filename.ssc`
 
 ### Testing
-## Configure
+#### Configure
 `python3 conftest.py`
-## Test
+#### Test
 `pytest`
 
 ### Syntax
