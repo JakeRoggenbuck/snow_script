@@ -2,11 +2,20 @@
 
 A macro language with low level macros like if statements, jumps, and memory control and high level futures like memory dump, type, type casting, push, and calc
 
+### Dependencies
+`pip3 install -r requirements.txt`
+
+### Install
+`sudo ./impulse.build`
+
 ### Running
-`./ssc filename.ssc`
+`ssc filename.ssc`
 
 ### Testing
-`PYTHONPATH=. pytest`
+## Configure
+`python3 conftest.py`
+## Test
+`pytest`
 
 ### Syntax
 view syntax.txt for macros and uses
